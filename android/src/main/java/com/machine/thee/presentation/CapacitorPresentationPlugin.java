@@ -30,6 +30,8 @@ public class CapacitorPresentationPlugin extends Plugin {
     @PluginMethod
     public void openLink(PluginCall call) {
         String url = call.getString("url");
+        String baseUrl = call.getString("baseUrl");
+
 
         JSObject ret = new JSObject();
         ret.put("url", url);
@@ -41,7 +43,7 @@ public class CapacitorPresentationPlugin extends Plugin {
                         presentationDisplays = displayManager.getDisplays(DisplayManager.DISPLAY_CATEGORY_PRESENTATION);
                         if (presentationDisplays.length > 0) {
                             Log.d("presentationDisplays", String.valueOf(presentationDisplays[0]));
-                            SecondaryDisplay secondaryDisplay = new SecondaryDisplay(getContext(), presentationDisplays[0]);
+                            SecondaryDisplay secondaryDisplay = new SecondaryDisplay(getContext(), presentationDisplays[0], baseUrl);
                             secondaryDisplay.loadUrl(url);
                             Log.d("-> SecondaryDisplay", "Çalışıyor...");
                             secondaryDisplay.show();

@@ -20,4 +20,4 @@ export interface CapacitorPresentationPlugin {
   getDisplays(): Promise<{ displays: number }>;
 }
 
-export type OpenLinkOptions = {url: string, htmlStrings?: string} | {htmlStrings: string, url?: string}
+export type OpenLinkOptions = {url: string, htmlStrings?: string, baseUrl?: string} | {htmlStrings: string, url?: string, baseUrl?: string}
